@@ -40,9 +40,9 @@ public class Shop {
         return null;
     }
 
-    public void SaveShop() {
+    public void saveShop() {
         try {
-            FileOutputStream fos = new FileOutputStream("myshop");
+            FileOutputStream fos = new FileOutputStream("myshop.dat");
             ObjectOutputStream oos = new ObjectOutputStream(fos);
             oos.writeObject(list);
             oos.close();
@@ -56,10 +56,10 @@ public class Shop {
         }
     }
 
-    public void SetShop() {
+    public void setShop() {
         List<Product> arraylist= new ArrayList<>();
     try {
-        FileInputStream fis = new FileInputStream("myshop");
+        FileInputStream fis = new FileInputStream("myshop.dat");
         ObjectInputStream ois = new ObjectInputStream(fis);
         arraylist = (ArrayList) ois.readObject();
         ois.close();
