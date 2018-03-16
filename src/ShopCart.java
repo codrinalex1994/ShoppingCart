@@ -26,6 +26,7 @@ public class ShopCart {
 			}
 		}
 
+		product.setQuantity(product.getQuantity() - quantity);
 		if(this.products.keySet().contains(product)) {
 			quantity += this.products.get(product);
 		}
