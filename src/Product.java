@@ -17,6 +17,11 @@ public class Product {
 		this.price = price;
 		this.expirationDate = expirationDate;
 		this.quantity = quantity;
+
+		if(description == "") throw new RuntimeException("invalid description");
+		if(name == "") throw new RuntimeException("invalid name");
+		if(price<1) throw new RuntimeException("invalid price");
+		if(quantity<1) throw new RuntimeException("invalide quantity");
 	}
 
 
