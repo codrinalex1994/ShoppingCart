@@ -26,13 +26,13 @@ public class ShopCart {
 			}
 		}
 
-		product.setQuantity(product.getQuantity() - quantity);
-		if(this.products.keySet().contains(product)) {
-			quantity += this.products.get(product);
-		}
-
 		if(product.getQuantity() < quantity) {
 			throw new RuntimeException("too many products " + product.getName() + " added to cart");
+		}
+		product.setQuantity(product.getQuantity() - quantity);
+
+		if(this.products.keySet().contains(product)) {
+			quantity += this.products.get(product);
 		}
 
 		this.products.put(product, quantity);
