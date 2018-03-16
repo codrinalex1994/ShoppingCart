@@ -42,7 +42,7 @@ public class ShopCart {
 		Product product = this.getProduct(id);
 
 		if(this.products.keySet().contains(product)) {
-			int currQuanity = this.products.get(product);
+			int currQuantity = this.products.get(product);
 			if(quantity > currQuantity) {
 				throw new RuntimeException("cannot remove this many products");
 			}
