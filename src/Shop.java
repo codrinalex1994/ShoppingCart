@@ -18,6 +18,13 @@ public class Shop {
         }
     }
 
+    public void removeProduct(int id) {
+        for(Product product : list) {
+            if(product.getId() == id) {
+            }
+        }
+    }
+
 	public Product[] getProducts() {
 		return this.list.toArray(new Product[this.list.size()]);
 	}
@@ -83,7 +90,7 @@ public class Shop {
 
 	public String toString() {
 		String str = "";
-		for(Product product : this.products) {
+		for(Product product : this.list) {
 			str = str + product.toString() + "\n";
 		}
 
