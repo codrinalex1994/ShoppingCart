@@ -24,6 +24,8 @@ public class Shop {
     public void removeProduct(int id) {
         for(Product product : list) {
             if(product.getId() == id) {
+                this.list.remove(product);
+                return;
             }
         }
     }
