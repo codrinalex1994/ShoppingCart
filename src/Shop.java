@@ -11,8 +11,10 @@ public class Shop {
         this.list = list;
     }
 
-    public void addProduct(Product product) {
-        list.add(product);
+    public void addProduct(Product...products) {
+        for(Product product : products) {
+            list.add(product);
+        }
     }
 
 	public Product[] getProducts() {
