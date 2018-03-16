@@ -26,7 +26,7 @@ public class Shop {
 
     public Product get(int id) {
         for (Product product : list) {
-            if (product.getId() == name) {
+            if (product.getId() == id) {
                 return product;
             }
         }
