@@ -121,4 +121,11 @@ public class Product {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
+
+
+
+	public String toString() {
+		return String.format("id=%d, name=%s, description=%s, price=%f, expiration date=%s, quantity=%d",
+			this.id, this.name, this.description, this.price, this.expirationDate, this.quantity);
+	}
 }

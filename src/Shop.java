@@ -77,4 +77,16 @@ public class Shop {
 
         list = arraylist;
     }
+
+
+
+
+	public String toString() {
+		String str = "";
+		for(Product product : this.products) {
+			str = str + product.toString() + "\n";
+		}
+
+		return str;
+	}
 }

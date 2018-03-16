@@ -134,4 +134,13 @@ public class ShopCart {
 	private int getProductQuantity(Product product) {
 		return this.products.get(product);
 	}
+
+	public String toString() {
+		String str = "";
+		for(Product product : this.products.keySet()) {
+			str = str + product.toString() + "\n";
+		}
+
+		return str;
+	}
 }
