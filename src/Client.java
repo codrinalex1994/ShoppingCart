@@ -13,7 +13,7 @@ public class Client {
         while(true){
             input = scan.nextLine();
             if(input.equals("List items")){
-                System.out.println(shop.getProducts());
+                System.out.println(shop);
             }
             else
             if(input.equals("Add product")){
@@ -23,7 +23,7 @@ public class Client {
                 cart.addProduct(shop,id,quantity);
             }
             else if(input.equals("List cart")){
-                System.out.println(cart.getProducts());
+                System.out.println(cart);
             }
             else if(input.equals("Remove product")){
                 System.out.println("Choose product id and quantity.");
