@@ -14,6 +14,9 @@ public class Shop {
 
     public void addProduct(Product...products) {
         for(Product product : products) {
+            for(Product otherproducts : list)
+                if (product.getId() == otherproducts.getId())
+                    throw new RuntimeException("product ID already exists");
             list.add(product);
         }
     }
@@ -83,7 +86,7 @@ public class Shop {
 
 	public String toString() {
 		String str = "";
-		for(Product product : this.products) {
+		for(Product product : this.list) {
 			str = str + product.toString() + "\n";
 		}
 

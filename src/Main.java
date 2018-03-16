@@ -14,6 +14,8 @@ public class Main {
 		cart.addProduct(shop,0,15);
 		cart.addProduct(shop,1,1);
 		cart.addProduct(shop,3,15);
+
+		System.out.println(cart.toString());
 	}
 
 }
