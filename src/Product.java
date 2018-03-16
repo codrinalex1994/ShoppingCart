@@ -1,6 +1,3 @@
-package lab3;
-
-
 
 public class Product {
 	private int id;
@@ -11,7 +8,7 @@ public class Product {
 	private int quantity;
 
 
-	
+
 	public Product(int id, String name, String description, double price, String expirationDate, int quantity) {
 		super();
 		this.id = id;
@@ -22,7 +19,7 @@ public class Product {
 		this.quantity = quantity;
 	}
 
-	
+
 
 
 	@Override

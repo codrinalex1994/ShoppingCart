@@ -1,5 +1,3 @@
-package lab3;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -7,16 +5,18 @@ import java.util.Map;
 
 public class ShopCart {
 	private Map<Product, Integer> products;
-	
-	
-	
+
+
+
 	public ShopCart() {
 		this.products = new HashMap<Product, Integer>();
 	}
-	
-	
-	
-	public void addProduct(Product product, int quantity) {
+
+
+
+	public void addProduct(Shop shop, int id, int quantity) {
+		Product product = shop.get(id);
+
 		for(Product element : this.products.keySet()) {
 			if(element.getId() == product.getId() && element.equals(product) == false) {
 				throw new RuntimeException("products have the same id, but are different");
@@ -25,7 +25,7 @@ public class ShopCart {
 				throw new RuntimeException("products are the same, but have different ids");
 			}
 		}
-		
+
 		if(this.products.keySet().contains(product)) {
 			quantity += this.products.get(product);
 		}
@@ -33,24 +33,13 @@ public class ShopCart {
 		if(product.getQuantity() < quantity) {
 			throw new RuntimeException("too many products " + product.getName() + " added to cart");
 		}
-		
-		this.products.put(product, quantity);
-	}
-	
-	public void addProduct(int id, int quantity) {
-		Product product = this.getProduct(id);
-		quantity += this.products.get(product);
 
-		if(product.getQuantity() < quantity) {
-			throw new RuntimeException("too many products " + product.getName() + " added to cart");
-		}
-		
 		this.products.put(product, quantity);
 	}
-	
+
 	public void removeProduct(int id, int quantity) {
 		Product product = this.getProduct(id);
-				
+
 		if(this.products.keySet().contains(product)) {
 			quantity = this.products.get(product) - quantity;
 			if(quantity <= 0) {
@@ -58,14 +47,14 @@ public class ShopCart {
 			}
 		}
 	}
-	
+
 	public void removeProduct(int id) {
 		Product product = this.getProduct(id);
 		this.products.remove(product);
 	}
-	
 
-	
+
+
 	public boolean contains(int id) {
 		try {
 			this.getProduct(id);
@@ -73,26 +62,26 @@ public class ShopCart {
 		catch(Exception e) {
 			return false;
 		}
-		
+
 		return true;
 	}
-	
+
 	public boolean contains(Product product) {
 		return this.products.keySet().contains(product);
 	}
-	
-	
-	
+
+
+
 	public double getTotalPrice() {
 		double price = 0;
-		
+
 		for(Product product : this.products.keySet()) {
 			price += this.getProductTotalPrice(product);
 		}
-		
+
 		return price;
 	}
-	
+
 	public Product[] getProducts() {
 		return this.products.keySet().toArray(new Product[this.products.size()]);
 	}
@@ -103,38 +92,38 @@ public class ShopCart {
 				return product;
 			}
 		}
-		
+
 		throw new RuntimeException("no product with id " + id + " found in shop cart");
 	}
 
 	public double getProductTotalPrice(int id) {
 		 return this.getProductTotalPrice(this.getProduct(id));
 	}
-	
+
 	public int getProductQuantity(int id) {
 		return this.getProductQuantity(this.getProduct(id));
 	}
 
-	
-	
+
+
 	private double getProductTotalPrice(Product product) {
 		if(this.products.keySet().contains(product) == false) {
 			throw new RuntimeException("product not found");
 		}
-		
+
 		int quantity = this.products.get(product);
 		double price = product.getPrice() * quantity;
-		
+
 		if(quantity >= 10) {
 			price -= price * 3 / 5;
 		}
 		else if(quantity >= 5) {
 			price -= price / 5;
 		}
-		
+
 		return price;
 	}
-	
+
 	private int getProductQuantity(Product product) {
 		return this.products.get(product);
 	}
