@@ -15,6 +15,10 @@ public class Shop {
         list.add(product);
     }
 
+	public Product[] getProducts() {
+		return this.list.toArray(new Product[this.list.size()]);
+	}
+
     public Product getProductByName(String name) {
         for (Product product : list) {
             if (product.getName().equals(name)) {
