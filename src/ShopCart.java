@@ -138,7 +138,7 @@ public class ShopCart {
 	public String toString() {
 		String str = "";
 		for(Product product : this.products.keySet()) {
-			str = str + product.toString() + "\n";
+			str = str + product.toString() + ", quantity in cart=" + this.products.get(product) + "\n";
 		}
 
 		return str;

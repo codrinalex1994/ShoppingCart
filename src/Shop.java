@@ -21,6 +21,13 @@ public class Shop {
         }
     }
 
+    public void removeProduct(int id) {
+        for(Product product : list) {
+            if(product.getId() == id) {
+            }
+        }
+    }
+
 	public Product[] getProducts() {
 		return this.list.toArray(new Product[this.list.size()]);
 	}
